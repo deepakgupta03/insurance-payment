@@ -1,0 +1,14 @@
+<div class="premium-payment">
+  <h2>Premium Payment</h2>
+  <form>
+    <div class="form-group">
+      <label for="policyNumber">Select Policy Number:</label>
+      <select class="select-policy" id="policyNumber" name="policyNumber" class="form-control" [(ngModel)]="selectedPolicyNumber" (change)="calculatePremium()">
+        <option *ngFor="let policy of policies" [value]="policy.policyNumber">{{ policy.policyNumber }}</option>
+      </select>
+      <label for="premiumAmount">Payment Amount:</label>
+      <input type="number" id="premiumAmount" class="form-control" name="premiumAmount" [(ngModel)]="premiumAmount" disabled>
+    </div>
+    <button type="submit"  [disabled]="!isPremiumCalculated" (click)="payPremium()" class="btn btn-primary">Pay Premium</button>
+  </form>
+</div>
